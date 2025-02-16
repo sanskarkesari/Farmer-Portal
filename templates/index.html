@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriConnect - Farmer Empowerment Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Modern Professional Styles */
+        :root {
+            --primary-color: #2E7D32;
+            --secondary-color: #81C784;
+            --accent-color: #FFD54F;
+            --dark-gray: #2E2E2E;
+            --light-gray: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+        }
+
+        .header {
+            background: linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.9)),
+                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #1B5E20;
+        }
+
+        .news-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .news-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>AgriConnect</h1>
+        <p>Empowering Farmers Through Technology & Innovation</p>
+    </header>
+
+    <div class="features">
+        <div class="feature-card">
+            <i class="fas fa-tractor feature-icon"></i>
+            <h2>Government Schemes</h2>
+            <p>Access comprehensive information about agricultural subsidies, loans, and government initiatives.</p>
+            <a href="{{ url_for('schemes') }}" class="cta-button">
+                Explore Schemes
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-seedling feature-icon"></i>
+            <h2>Crop Yield Prediction</h2>
+            <p>AI-powered predictions for optimal crop selection and yield estimation.</p>
+            <a href="{{ url_for('predictyield') }}" class="cta-button">
+                Predict Yield
+                <i class="fas fa-chart-line"></i>
+            </a>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-coins feature-icon"></i>
+            <h2>Crop Recommendation</h2>
+            <p>Real-time climate analysis and crop prediction for better decision making.</p>
+            <a href="{{ url_for('predictcrop') }}" class="cta-button">
+                View Recommendation
+                <i class="fas fa-dollar-sign"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="news-section">
+        <div class="news-card">
+            <h3>New Soil Health Initiative Launched</h3>
+            <div class="news-date">July 15, 2023</div>
+            <p>Government announces nationwide soil testing program with subsidies for small farmers.</p>
+        </div>
+
+        <div class="news-card">
+            <h3>Monsoon Forecast Update</h3>
+            <div class="news-date">July 12, 2023</div>
+            <p>IMD predicts normal monsoon patterns for kharif season across most regions.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>Email: support@agriconnect.gov<br>
+                Helpline: 1800-123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <p><a href="#" style="color: white; text-decoration: none;">FAQs</a><br>
+                <a href="#" style="color: white; text-decoration: none;">Documentation</a></p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p>
+                    <a href="#" style="color: white; text-decoration: none;"><i class="fab fa-twitter"></i> Twitter</a><br>
+                    <a href="#" style="color: white; text-decoration: none;"><i class="fab fa-facebook"></i> Facebook</a>
+                </p>
+            </div>
+        </div>
+        <p style="margin-top: 2rem;">&copy; 2023 AgriConnect. All rights reserved.</p>
+    </footer>
+</body>
+</html>
